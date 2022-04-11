@@ -4,7 +4,6 @@ import Link from 'next/link';
 
 interface Movies {
   results: any;
-  data: any;
 }
 
 interface MovieDatasParams {
@@ -12,8 +11,7 @@ interface MovieDatasParams {
   title: string;
 }
 
-const Home = ({ data, results }: Movies) => {
-  console.log(results);
+const Home = ({ results }: Movies) => {
   const res: any = results.results;
   const router = useRouter();
   const movieDatas = ({ id, title }: MovieDatasParams) => {
@@ -22,8 +20,7 @@ const Home = ({ data, results }: Movies) => {
 
   return (
     <div>
-      <h1>API Test Page</h1>
-      <div>{data}</div>
+      <h1 className="title">Movies API Test Page</h1>
       <div className="container">
         <Seo title="Home" />
         {res?.map((movie: any) => (
@@ -53,7 +50,9 @@ const Home = ({ data, results }: Movies) => {
           padding: 20px;
           gap: 20px;
         }
-
+        h1.title {
+          text-align: center;
+        }
         .movie {
           cursor: pointer;
         }

@@ -8,14 +8,12 @@ interface MoveieData {
 
 export default function Detail({ params }: any) {
   const router = useRouter();
-  console.log(params);
-  console.log(router);
   const [title, id] = params;
-  console.log(title);
-  console.log(id);
   return (
     <div>
-      <Seo title={'title'} />
+      <Seo title={title} />
+      <h2>{title}</h2>
+      <h2>{id}</h2>
     </div>
   );
 }
