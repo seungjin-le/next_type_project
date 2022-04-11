@@ -3,7 +3,6 @@ import type { AppProps } from 'next/app';
 
 function MyApp({ Component, pageProps }: AppProps) {
   console.log(pageProps);
-  console.log('test');
   return <Component {...pageProps} />;
 }
 
