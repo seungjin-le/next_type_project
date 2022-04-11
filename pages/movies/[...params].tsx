@@ -17,6 +17,7 @@ export default function Detail({ params }: any) {
     </div>
   );
 }
+
 export function getServerSideProps({ params: { params } }: any) {
   return {
     props: {

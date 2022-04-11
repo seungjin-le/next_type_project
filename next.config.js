@@ -1,4 +1,7 @@
 /** @type {import('next').NextConfig} */
+
+const API_KEY = process.env.API_KEY;
+
 const nextConfig = {
   reactStrictMode: true,
 };
@@ -20,11 +23,11 @@ module.exports = {
     return [
       {
         source: '/api/movies',
-        destination: `https://api.themoviedb.org/3/movie/popular?api_key=872224b0244bbc45f490e0e7af1de83c`,
+        destination: `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}`,
       },
       {
         source: '/api/movies/:id',
-        destination: `https://api.themoviedb.org/3/movie/:id?api_key=872224b0244bbc45f490e0e7af1de83c`,
+        destination: `https://api.themoviedb.org/3/movie/:id?api_key=${API_KEY}`,
       },
     ];
   },
