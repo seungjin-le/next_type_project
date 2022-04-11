@@ -1,7 +1,10 @@
-import { GetServerSideProps } from 'next';
-import { any } from 'prop-types';
+import { string } from 'prop-types';
 
-const Home = ({ data, results }: { data: any; results: any }) => {
+interface Movies {
+  results: any;
+}
+
+const Home = ({ data, results }: { data: any; results: Movies }) => {
   console.log(results);
   return (
     <div>
