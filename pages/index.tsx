@@ -9,14 +9,9 @@ interface Movies {
   };
 }
 
-interface MovieDatasParams {
-  id: number;
-  title: string;
-}
-
 const Home = ({ datas: { results } }: Movies) => {
   const router = useRouter();
-  const movieDatas = ({ id, title }: MovieDatasParams) => {
+  const movieDatas = ({ id, title }: { id: number; title: string }) => {
     router.push(`/movies/${title}/${id}`);
   };
 
@@ -80,9 +75,6 @@ const Home = ({ datas: { results } }: Movies) => {
 };
 
 export const getServerSideProps = async () => {
-  //const results = await (
-  //     await fetch(`http://localhost:3000/api/movies`)
-  //   ).json();
   const data = await (await axios.get(`http://localhost:3000/api/movies`)).data;
   return {
     props: {

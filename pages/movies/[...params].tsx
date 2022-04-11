@@ -1,10 +1,6 @@
 import Seo from '../../components/Seo';
 import { useRouter } from 'next/router';
-
-interface MoveieData {
-  id: number;
-  title: string;
-}
+import axios from 'axios';
 
 export default function Detail({ params }: any) {
   const router = useRouter();
@@ -18,7 +14,8 @@ export default function Detail({ params }: any) {
   );
 }
 
-export function getServerSideProps({ params: { params } }: any) {
+export async function getServerSideProps({ params: { params } }: any) {
+  const movieDetail = await (await axios.get('')).data;
   return {
     props: {
       params,
