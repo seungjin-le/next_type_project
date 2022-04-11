@@ -1,9 +1,12 @@
 import Seo from '../components/Seo';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
+import axios from 'axios';
 
 interface Movies {
-  results: any;
+  datas: {
+    results: any;
+  };
 }
 
 interface MovieDatasParams {
@@ -11,18 +14,18 @@ interface MovieDatasParams {
   title: string;
 }
 
-const Home = ({ results }: Movies) => {
-  const res: any = results.results;
+const Home = ({ datas: { results } }: Movies) => {
   const router = useRouter();
   const movieDatas = ({ id, title }: MovieDatasParams) => {
     router.push(`/movies/${title}/${id}`);
   };
+
   return (
     <div>
       <h1 className="title">Movies API Test Page</h1>
       <div className="container">
         <Seo title="Home" />
-        {res?.map((movie: any) => (
+        {results?.map((movie: any) => (
           <div
             onClick={() =>
               movieDatas({ id: movie.id, title: movie.original_title })
@@ -77,18 +80,15 @@ const Home = ({ results }: Movies) => {
 };
 
 export const getServerSideProps = async () => {
-  const data: string = 'alllow';
-  const results = await (
-    await fetch(`http://localhost:3000/api/movies`)
-  ).json();
+  //const results = await (
+  //     await fetch(`http://localhost:3000/api/movies`)
+  //   ).json();
+  const data = await (await axios.get(`http://localhost:3000/api/movies`)).data;
   return {
     props: {
-      data,
-      results,
+      datas: data,
     },
   };
 };
 
 export default Home;
-
-//`https://api.themoviedb.org/3/movie/550?api_key=872224b0244bbc45f490e0e7af1de83c`
