@@ -17,7 +17,6 @@ const Home = ({ results }: Movies) => {
   const movieDatas = ({ id, title }: MovieDatasParams) => {
     router.push(`/movies/${title}/${id}`);
   };
-
   return (
     <div>
       <h1 className="title">Movies API Test Page</h1>
