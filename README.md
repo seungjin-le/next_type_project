@@ -1,5 +1,7 @@
-# Next.js + TypeScript Movie API Test
+# Next.js + TypeScript Movie API 연습
 
-### Movie = TMDB
-### LIB 
-> axios(비동기 통신 라이브러리)
+## MovieData = TMDB API
+
+## Library 
+> #### axios(비동기 통신 라이브러리)
+

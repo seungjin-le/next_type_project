@@ -156,7 +156,6 @@ export async function getServerSideProps({ params: { params } }: any) {
   const movieDetail = await (
     await axios.get(`http://localhost:3000/api/movies/${params[1]}`)
   ).data;
-
   return {
     props: {
       movieDetail,
