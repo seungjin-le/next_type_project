@@ -1,11 +1,5 @@
 /** @type {import('next').NextConfig} */
 
-const nextConfig = {
-  reactStrictMode: true,
-};
-
-//module.exports = nextConfig;
-
 const API_KEY = process.env.NEXT_API_KEY;
 
 module.exports = {
